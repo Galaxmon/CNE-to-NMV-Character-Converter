@@ -1,6 +1,5 @@
 #A Janky GUI :)
 import os
-import sys
 import json
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -18,14 +17,6 @@ DEFAULTS = {
     "holdTime": 4,
     "fps": 24,
 }
-
-def resource_path(path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, path)
 
 def checkType(input):
     if input.is_file():
@@ -232,9 +223,6 @@ f_n.set("")
 root.title("CNE to NMV Convert")
 root.geometry("300x300")
 root.resizable(False, False)
-
-icon = PhotoImage(file=resource_path("LOGO.png"))
-root.iconphoto(True, icon)
 
 frameb = Frame(root,
                pady= 20)
